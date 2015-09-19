@@ -112,7 +112,7 @@ portage DISTDIR for us.
 $ USE="static-libs" ARCH=amd64 x86_64-pc-mingw32-emerge -avt boost
 $ USE="static-libs" ARCH=x86   i686-pc-mingw32-emerge   -avt boost
 ```
-The `emerge` run until it fails on _boost_, all the required packages should
+Let `emerge` run until it fails on _boost_, all the required packages should
 then be installed and we can go ahead and [install _boost_
 manually](#manually-install-boost).
 
@@ -128,7 +128,7 @@ Extract the boost tarball that was downloaded into portage DISTDIR.
 ```bash
 $ tar -xjf boost_1_56_0.tar.bz2
 ```
-The name of your boost tarball by be different than show here, if you have
+The name of your boost tarball may be different than shown here, if you have
 a different version. Extract whatever version emerge downloaded for you.
 
 Go into the directory that was extracted
@@ -169,7 +169,9 @@ Make sure`TARGET=` is set appropriately.
 To cross-compile with cmake use the appropriate [toolchain](cmake/) file and
 invoke cmake with
 ```bash
-$ cmake -DCMAKE_TOOLCHAIN_FILE=../Toolchain-windows.cmake ...
+$ cmake -DCMAKE_TOOLCHAIN_FILE=x86_64-pc-mingw32.cmake ...
 ```
-replacing `...` with the cmake parameters need for your particular project.
+replacing `...` with the cmake parameters needed for your particular project,
+and `x86_64-pc-mingw32.cmake` with the file downloaded from
+[toolchain](cmake/).
 
