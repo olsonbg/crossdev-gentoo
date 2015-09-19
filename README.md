@@ -158,7 +158,7 @@ instructions (replace v3.2.0 with the version you downloaded):
 ```bash
 $ tar -xjf mingw-w64-v3.2.0.tar.bz2
 $ cd mingw-w64-v3.2.0/mingw-w64-libraries/winpthreads
-$ TARGET=x86_64-pc-mingw32 ./configure --prefix=/usr/$TARGET/usr --host=$TARGET --target=$TARGET --enable-static --disable-shared
+$ TARGET=x86_64-pc-mingw32 && ./configure --prefix=/usr/$TARGET/usr --host=$TARGET --target=$TARGET --enable-static --disable-shared
 $ make
 $ sudo make install
 ```
