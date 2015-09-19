@@ -1,0 +1,46 @@
+--- a/bzip2.c
++++ b/bzip2.c
+@@ -351,7 +351,7 @@
+ 
+    if ((srcMode == SM_F2F || srcMode == SM_F2O) && showProgress == True) {
+       (void)fseek(stream, 0, SEEK_END);
+-      fileSize = ftello(stream);
++      fileSize = ftello64(stream);
+       rewind(stream);
+       if (verbosity >= 1)
+          fprintf(stderr, "Input-file size: %ld\n", (long)fileSize);
+@@ -376,8 +376,8 @@
+          time(&currentTime);
+ 
+          if ((currentTime - startTime) > 1) { /* show progress every 2 seconds */
+-            double curInPos = ftello(stream);
+-            double curOutPos = ftello(zStream);
++            double curInPos = ftello64(stream);
++            double curOutPos = ftello64(zStream);
+ 
+             startTime = currentTime;
+ 
+@@ -482,10 +482,10 @@
+    SET_BINARY_MODE(zStream);
+ 
+    if ((srcMode == SM_F2F || srcMode == SM_F2O) && showProgress == True) {
+-      off_t dummy = ftello(zStream);
+-      (void)fseeko(zStream, 0, SEEK_END);
+-      fileSize = ftello(zStream);
+-      (void)fseeko(zStream, dummy, SEEK_SET);
++      off_t dummy = ftello64(zStream);
++      (void)fseeko64(zStream, 0, SEEK_END);
++      fileSize = ftello64(zStream);
++      (void)fseeko64(zStream, dummy, SEEK_SET);
+       if (verbosity >= 1)
+          fprintf(stderr, "Input-file size: %ld\n", (long)fileSize);
+    }
+@@ -513,7 +513,7 @@
+          if ((srcMode == SM_F2F || srcMode == SM_F2O) && showProgress == True) {
+             time(&currentTime);
+             if ((currentTime - startTime) >= 2) {
+-               double curInPos = ftello(zStream);
++               double curInPos = ftello64(zStream);
+                startTime = currentTime;
+ 
+                fprintf(stderr, "%.2f%% done\r", (curInPos * 100.0) / fileSize);

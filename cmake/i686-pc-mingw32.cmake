@@ -1,0 +1,1 @@
+i686-pc-mingw32-4.8.4.cmake
