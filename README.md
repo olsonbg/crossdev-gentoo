@@ -45,6 +45,7 @@ old environment(s).
 $ crossdev -C x86_64-pc-mingw32
 $ crossdev -C i686-pc-mingw32
 ```
+If crossdev asks if you want to delete the directory, answer _yes_.
 
 ## Initialize new environment
 
@@ -71,7 +72,7 @@ $ echo "cross-i686-pc-mingw32/gcc -sanitize" >> /etc/portage/package.use/crossde
 
 ## Install environment
 
-Now we can finally install the environmnet. Issue the following commands and
+Now we can finally install the environment. Issue the following commands and
 wait for them to complete.
 ```bash
 $ crossdev -t x86_64-pc-mingw32 --stable -oO /usr/local/portage/crossdev
@@ -106,7 +107,7 @@ That should let bzip2 install when emerging the [Boost library](#boost-library)
 
 Boost will fail to compile with emerge, but this will
 install dependencies like zlib and bzip2, and download the tarball to
-PORTAGE_DISTDIR for us.
+portage DISTDIR for us.
 ```bash
 $ USE="static-libs" ARCH=amd64 x86_64-pc-mingw32-emerge -avt boost
 $ USE="static-libs" ARCH=x86   i686-pc-mingw32-emerge   -avt boost
@@ -123,7 +124,7 @@ $ ROOT=/usr/x86_64-pc-mingw32 eix -I --only-names
 $ ROOT=/usr/i686-pc-mingw32   eix -I --only-names
 ```
 #### Manually install Boost
-Extract the boost tarball that was downloaded into PORTAGE_DISTDIR.
+Extract the boost tarball that was downloaded into portage DISTDIR.
 ```bash
 $ tar -xjf boost_1_56_0.tar.bz2
 ```
