@@ -69,11 +69,11 @@ ACCEPT_KEYWORDS (~amd64, ~x86). The \<target\> tag should be replaced with
 *x86_64-pc-mingw32*, *i686-pc-mingw32*, or any other target you wish to
 install.
 
-Make sure `gcc` is **not** compiled with the *sanitize* flag.
+Make sure `gcc` is **not** compiled with the *sanitize* or *vtv* flags.
 
 ```bash
-echo "cross-x86_64-pc-mingw32/gcc -sanitize" >> /etc/portage/package.use/crossdev
-echo "cross-i686-pc-mingw32/gcc -sanitize" >> /etc/portage/package.use/crossdev
+echo "cross-x86_64-pc-mingw32/gcc -sanitize -vtv" >> /etc/portage/package.use/crossdev
+echo "cross-i686-pc-mingw32/gcc -sanitize -vtv" >> /etc/portage/package.use/crossdev
 ```
 
 ## Install environment
