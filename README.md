@@ -15,7 +15,9 @@ environment, feel free to skip the commands with the other.
 ## Crossdev Repository
 
 First, we need to make a repository for portage and crossdev to store
-package information. I place all my local repositories in the
+package information (see the *Crossdev* section of the Gentoo 
+[local overlay wiki](https://wiki.gentoo.org/wiki/Overlay/Local_overlay)
+for more details). I place all my local repositories in the
 `/usr/local/portage` directory, with each local repository as a
 subdirectory. I call my crossdev repository *local-crossdev*, and it is
 stored in `/usr/local/portage/crossdev.` To tell portage about this setup,
